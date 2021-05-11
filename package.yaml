@@ -1,0 +1,58 @@
+name:                haskell-fp-start
+version:             0.1.0.0
+github:              "githubuser/haskell-fp-start"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2021 Author name here"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/haskell-fp-start#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- text
+- ieee754
+- numbers
+- containers
+- rosezipper
+- xml-conduit
+- raw-strings-qq
+- bytestring
+- derive
+- semigroups
+
+library:
+  source-dirs: src
+
+executables:
+  haskell-fp-start-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - haskell-fp-start
+
+tests:
+  haskell-fp-start-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - haskell-fp-start

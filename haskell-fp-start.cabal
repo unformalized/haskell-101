@@ -1,0 +1,131 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: d7c337b3fd4ec460d1e680f9afa11f04d4d53ee0fb47bbe7ca06652047af60d5
+
+name:           haskell-fp-start
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/haskell-fp-start#readme>
+homepage:       https://github.com/githubuser/haskell-fp-start#readme
+bug-reports:    https://github.com/githubuser/haskell-fp-start/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2021 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/haskell-fp-start
+
+library
+  exposed-modules:
+      Base.BaseType
+      Base.BoolFunction
+      Base.Functions
+      Base.LibFuns
+      Base.Typeclass
+      Primary.Caeser
+      Primary.Catalan
+      Primary.DataType
+      Primary.DeriveLib
+      Primary.Deriving
+      Primary.EmptyDataType
+      Primary.FoldableTree
+      Primary.GADTS
+      Primary.Hof
+      Primary.Huffman
+      Primary.Kind
+      Primary.List
+      Primary.LogicCalculator
+      Primary.Matrix
+      Primary.Monoid
+      Primary.MultiWayIf
+      Primary.NewType
+      Primary.Parser
+      Primary.Permutation_Combination
+      Primary.Prime
+      Primary.ReadS
+      Primary.Recursive
+      Primary.RoseZipperTree
+      Primary.ShortestPath
+      Primary.Solve24
+      Primary.Sort
+      Primary.StandaloneD
+      Primary.String
+      Primary.Traversable
+      Primary.Tree
+      Primary.Typeclass2
+      Primary.TypeclassImpl
+      Primary.XMLZipper
+      Primary.Zipper
+      Start
+  other-modules:
+      Paths_haskell_fp_start
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , containers
+    , derive
+    , ieee754
+    , numbers
+    , raw-strings-qq
+    , rosezipper
+    , semigroups
+    , text
+    , xml-conduit
+  default-language: Haskell2010
+
+executable haskell-fp-start-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_haskell_fp_start
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , containers
+    , derive
+    , haskell-fp-start
+    , ieee754
+    , numbers
+    , raw-strings-qq
+    , rosezipper
+    , semigroups
+    , text
+    , xml-conduit
+  default-language: Haskell2010
+
+test-suite haskell-fp-start-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_haskell_fp_start
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , containers
+    , derive
+    , haskell-fp-start
+    , ieee754
+    , numbers
+    , raw-strings-qq
+    , rosezipper
+    , semigroups
+    , text
+    , xml-conduit
+  default-language: Haskell2010
