@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: d7c337b3fd4ec460d1e680f9afa11f04d4d53ee0fb47bbe7ca06652047af60d5
+-- hash: 3964ef6137ae031d52d9989fc6262f9f81996d37dc1ec72f1dd7546ef810d9ed
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -64,6 +64,7 @@ library
       Primary.Tree
       Primary.Typeclass2
       Primary.TypeclassImpl
+      Primary.TypeDependencies
       Primary.XMLZipper
       Primary.Zipper
       Start
