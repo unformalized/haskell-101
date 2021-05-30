@@ -31,6 +31,17 @@ dependencies:
 - bytestring
 - derive
 - semigroups
+- directory
+- process
+- time
+- old-locale
+- mtl
+- random
+- mwc-random
+- vector
+- deepseq
+- transformers >=0.4.1 && <0.6
+- transformers-base
 
 library:
   source-dirs: src

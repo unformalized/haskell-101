@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 3964ef6137ae031d52d9989fc6262f9f81996d37dc1ec72f1dd7546ef810d9ed
+-- hash: 6c46f9e7295c8eca265b53069f42e28320ac9cdf93c8bf951867420d3a663ba1
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -32,12 +32,29 @@ library
       Base.Functions
       Base.LibFuns
       Base.Typeclass
+      Content
+      Intermediate.CalcByStack
+      Intermediate.IO
+      Intermediate.Monad
+      Intermediate.MonadTrans
+      Intermediate.MonadTransformer
+      Intermediate.Printf
+      Intermediate.Random
+      Intermediate.Reader
+      Intermediate.Stack
+      Intermediate.StarDict
+      Intermediate.State
+      Intermediate.System
+      Intermediate.SystemTime
+      Intermediate.UnsafeIO
+      Intermediate.Writer
       Primary.Caeser
       Primary.Catalan
       Primary.DataType
       Primary.DeriveLib
       Primary.Deriving
       Primary.EmptyDataType
+      Primary.Existential
       Primary.FoldableTree
       Primary.GADTS
       Primary.Hof
@@ -51,10 +68,12 @@ library
       Primary.NewType
       Primary.Parser
       Primary.Permutation_Combination
+      Primary.PloyList
       Primary.Prime
       Primary.ReadS
       Primary.Recursive
       Primary.RoseZipperTree
+      Primary.RuntimeOverload
       Primary.ShortestPath
       Primary.Solve24
       Primary.Sort
@@ -76,13 +95,24 @@ library
       base >=4.7 && <5
     , bytestring
     , containers
+    , deepseq
     , derive
+    , directory
     , ieee754
+    , mtl
+    , mwc-random
     , numbers
+    , old-locale
+    , process
+    , random
     , raw-strings-qq
     , rosezipper
     , semigroups
     , text
+    , time
+    , transformers >=0.4.1 && <0.6
+    , transformers-base
+    , vector
     , xml-conduit
   default-language: Haskell2010
 
@@ -97,14 +127,25 @@ executable haskell-fp-start-exe
       base >=4.7 && <5
     , bytestring
     , containers
+    , deepseq
     , derive
+    , directory
     , haskell-fp-start
     , ieee754
+    , mtl
+    , mwc-random
     , numbers
+    , old-locale
+    , process
+    , random
     , raw-strings-qq
     , rosezipper
     , semigroups
     , text
+    , time
+    , transformers >=0.4.1 && <0.6
+    , transformers-base
+    , vector
     , xml-conduit
   default-language: Haskell2010
 
@@ -120,13 +161,24 @@ test-suite haskell-fp-start-test
       base >=4.7 && <5
     , bytestring
     , containers
+    , deepseq
     , derive
+    , directory
     , haskell-fp-start
     , ieee754
+    , mtl
+    , mwc-random
     , numbers
+    , old-locale
+    , process
+    , random
     , raw-strings-qq
     , rosezipper
     , semigroups
     , text
+    , time
+    , transformers >=0.4.1 && <0.6
+    , transformers-base
+    , vector
     , xml-conduit
   default-language: Haskell2010

@@ -1,5 +1,5 @@
 -- {-# LANGUAGE AllowAmbiguousTypes #-}
-{-# LANGUAGE FunctionalDependencies, FlexibleInstances #-}
+{-# LANGUAGE FunctionalDependencies, FlexibleInstances, TypeFamilies #-}
 
 module Primary.TypeDependencies (
   Nat2(
@@ -86,10 +86,13 @@ instance Eq a => Collection a [a] where
 
 -- 关联类型
 
+class (Num a, Num b) => GPlus2 a b where
+  type SumType a b :: *
+  plus2 :: a -> b -> SumType a b
 
-
-
-
+instance GPlus2 Int Int where
+  type SumType Int Int = Int
+  plus2 a b = a + b
 
 
 
