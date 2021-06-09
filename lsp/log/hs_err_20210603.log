@@ -1,0 +1,30 @@
+Found "/home/bestmasterliubin/dev/haskell/haskell-fp-start/hie.yaml" for "/home/bestmasterliubin/dev/haskell/haskell-fp-start/a"
+Module "/home/bestmasterliubin/dev/haskell/haskell-fp-start/a" is loaded by Cradle: Cradle {cradleRootDir = "/home/bestmasterliubin/dev/haskell/haskell-fp-start", cradleOptsProg = CradleAction: Stack}
+Run entered for haskell-language-server-wrapper(haskell-language-server-wrapper) Version 0.8.0.0, Git revision 2ad9eb068c53b7cbc2af55a86d0d7a1c41aeb3d5 (1895 commits) x86_64 ghc-8.6.5
+Current directory: /home/bestmasterliubin/dev/haskell/haskell-fp-start
+Operating system: linux
+Arguments: []
+Cradle directory: /home/bestmasterliubin/dev/haskell/haskell-fp-start
+Cradle type: Stack
+
+Tool versions found on the $PATH
+cabal:		2.4.0.0
+stack:		2.5.1
+ghc:		8.6.5
+
+
+Consulting the cradle to get project GHC version...
+Project GHC version: 8.6.5
+haskell-language-server exe candidates: ["haskell-language-server-8.6.5","haskell-language-server-8.6","haskell-language-server"]
+Launching haskell-language-server exe at:/home/bestmasterliubin/.local/bin/haskell-language-server-8.6.5
+haskell-language-server version: 0.8.0.0 (GHC: 8.6.5) (PATH: /home/bestmasterliubin/.local/bin/haskell-language-server-8.6.5) (GIT hash: 2ad9eb068c53b7cbc2af55a86d0d7a1c41aeb3d5)
+Output from setting up the cradle Cradle {cradleRootDir = "/home/bestmasterliubin/dev/haskell/haskell-fp-start", cradleOptsProg = CradleAction: Stack}
+> haskell-fp-start> configure (lib)
+> Configuring haskell-fp-start-0.1.0.0...
+> haskell-fp-start> initial-build-steps (lib)
+> Configuring GHCi with the following packages: haskell-fp-start
+> /home/bestmasterliubin/dev/haskell/haskell-fp-start/.stack-work/install/x86_64-linux-tinfo6/42b90ed871e4768516f19df4f57c36f850b36ca639db15c7035eb5e87cd23b98/8.6.5/pkgdb:/home/bestmasterliubin/.stack/snapshots/x86_64-linux-tinfo6/42b90ed871e4768516f19df4f57c36f850b36ca639db15c7035eb5e87cd23b98/8.6.5/pkgdb:/home/bestmasterliubin/.stack/programs/x86_64-linux/ghc-tinfo6-8.6.5/lib/ghc-8.6.5/package.conf.d
+Output from setting up the cradle Cradle {cradleRootDir = "/home/bestmasterliubin/dev/haskell/haskell-fp-start", cradleOptsProg = CradleAction: Stack}
+Output from setting up the cradle Cradle {cradleRootDir = "/home/bestmasterliubin/dev/haskell/haskell-fp-start", cradleOptsProg = CradleAction: Stack}
+Output from setting up the cradle Cradle {cradleRootDir = "/home/bestmasterliubin/dev/haskell/haskell-fp-start", cradleOptsProg = CradleAction: Stack}
+haskell-language-server-wrapper: callProcess: /home/bestmasterliubin/.local/bin/haskell-language-server-8.6.5 (exit 4): failed

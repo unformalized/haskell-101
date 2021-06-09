@@ -42,6 +42,9 @@ dependencies:
 - deepseq
 - transformers >=0.4.1 && <0.6
 - transformers-base
+- parsec
+- conduit
+- pipes
 
 library:
   source-dirs: src

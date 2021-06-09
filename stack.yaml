@@ -79,6 +79,9 @@ extra-deps:
 - transformers-base-0.4.5.2@sha256:e4d8155470905ba2942033a1537fc4cf91927d1c9b34693fd57ddf3bc02334af,1550
 - base-orphans-0.8.4@sha256:9a70dc95761ab9a9d49a038a4599b7b7945d486d80ed1678f347445bc336f3e0,3149
 - transformers-compat-0.6.6@sha256:510709db2b12d1510d70de824ee544ca0a9e6f27aa7e299218cbacc0750b4a5e,5560
+- pipes-4.3.16@sha256:95225dd8c67ee9c5973feefb3d7d7247f53ba9fdbf921cc1f4d2aabff3e1850e,3739
+- mmorph-1.1.5@sha256:9487ce601cbc3403c844c23a6fddb48f6b69a0097b77493670a45fc7a442fb20,1036
+- void-0.7.3@sha256:13d30f62fcdf065e595d679d4ac8b4b0c1bb1a1b73db7b5b5a8f857cb5c8a546,1857
 
 # Dependency packages to be pulled from upstream that are not in the resolver.
 # These entries can reference officially published versions as well as

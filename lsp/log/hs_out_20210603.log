@@ -1,0 +1,55 @@
+[Trace - 11:19:14 PM] Sending request 'initialize - (1)'
+Params: {
+  "processId": null,
+  "rootUri": "file:///home/bestmasterliubin/dev/haskell/haskell-fp-start/",
+  "capabilities": {
+    "workspace": {
+      "applyEdit": true,
+      "workspaceEdit": {
+        "documentChanges": true
+      },
+      "didChangeConfiguration": {},
+      "didChangeWatchedFiles": {
+        "dynamicRegistration": true
+      },
+      "symbol": {},
+      "executeCommand": {},
+      "workspaceFolders": false,
+      "configuration": true
+    },
+    "textDocument": {
+      "synchronization": {
+        "willSave": true,
+        "willSaveWaitUntil": true,
+        "didSave": true
+      },
+      "completion": {
+        "completionItem": {
+          "snippetSupport": true
+        }
+      },
+      "hover": {},
+      "signatureHelp": {},
+      "references": {},
+      "documentHighlight": {},
+      "formatting": {},
+      "rangeFormatting": {},
+      "onTypeFormatting": {},
+      "definition": {},
+      "codeAction": {},
+      "rename": {
+        "prepareSupport": true,
+        "dynamicRegistration": false
+      },
+      "semanticHighlightingCapabilities": {
+        "semanticHighlighting": false
+      }
+    }
+  }
+}
+
+
+[Trace - 11:19:24 PM] Sending request 'shutdown - (2)'
+Params: null
+
+

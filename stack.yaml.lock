@@ -312,4 +312,25 @@ packages:
       sha256: e53f7b8deb576db7baa6e4c13a7c9904cd247f6e4807bd12a058d1527197064e
   original:
     hackage: transformers-compat-0.6.6@sha256:510709db2b12d1510d70de824ee544ca0a9e6f27aa7e299218cbacc0750b4a5e,5560
+- completed:
+    hackage: pipes-4.3.16@sha256:95225dd8c67ee9c5973feefb3d7d7247f53ba9fdbf921cc1f4d2aabff3e1850e,3739
+    pantry-tree:
+      size: 806
+      sha256: 3e124fbc04d9b25633bb96ede3063fe7ae41d8cb73ba418fcf2e36a99360e043
+  original:
+    hackage: pipes-4.3.16@sha256:95225dd8c67ee9c5973feefb3d7d7247f53ba9fdbf921cc1f4d2aabff3e1850e,3739
+- completed:
+    hackage: mmorph-1.1.5@sha256:9487ce601cbc3403c844c23a6fddb48f6b69a0097b77493670a45fc7a442fb20,1036
+    pantry-tree:
+      size: 346
+      sha256: cf07fbaa1f5eb5d60c4c6b581f9ee911dfc9b23d737f2730430f2925fdaae376
+  original:
+    hackage: mmorph-1.1.5@sha256:9487ce601cbc3403c844c23a6fddb48f6b69a0097b77493670a45fc7a442fb20,1036
+- completed:
+    hackage: void-0.7.3@sha256:13d30f62fcdf065e595d679d4ac8b4b0c1bb1a1b73db7b5b5a8f857cb5c8a546,1857
+    pantry-tree:
+      size: 584
+      sha256: 5730b45e857424c97d24ee1cf530be1fc782cd000221ac97b5568be886cbbc2b
+  original:
+    hackage: void-0.7.3@sha256:13d30f62fcdf065e595d679d4ac8b4b0c1bb1a1b73db7b5b5a8f857cb5c8a546,1857
 snapshots: []

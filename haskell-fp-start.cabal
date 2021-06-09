@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 6c46f9e7295c8eca265b53069f42e28320ac9cdf93c8bf951867420d3a663ba1
+-- hash: dcaa0517e27939561951a426718ef998d6b0c8dad3db5347e1652e7c4f9aaa1b
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -34,16 +34,33 @@ library
       Base.Typeclass
       Content
       Intermediate.CalcByStack
+      Intermediate.Calculator
+      Intermediate.CFG
+      Intermediate.Compiler
+      Intermediate.Conduit
+      Intermediate.Continuation
+      Intermediate.Continuation2
+      Intermediate.Continuation3
+      Intermediate.DataStream
+      Intermediate.FreeMonad
+      Intermediate.FreeMonad2
+      Intermediate.FreeMonad3
+      Intermediate.FreeMonad4
       Intermediate.IO
+      Intermediate.Iteratee
       Intermediate.Monad
       Intermediate.MonadTrans
       Intermediate.MonadTransformer
+      Intermediate.Parsec
+      Intermediate.Parser
+      Intermediate.ParserCombinator
       Intermediate.Printf
       Intermediate.Random
       Intermediate.Reader
       Intermediate.Stack
       Intermediate.StarDict
       Intermediate.State
+      Intermediate.Stream
       Intermediate.System
       Intermediate.SystemTime
       Intermediate.UnsafeIO
@@ -94,6 +111,7 @@ library
   build-depends:
       base >=4.7 && <5
     , bytestring
+    , conduit
     , containers
     , deepseq
     , derive
@@ -103,6 +121,8 @@ library
     , mwc-random
     , numbers
     , old-locale
+    , parsec
+    , pipes
     , process
     , random
     , raw-strings-qq
@@ -126,6 +146,7 @@ executable haskell-fp-start-exe
   build-depends:
       base >=4.7 && <5
     , bytestring
+    , conduit
     , containers
     , deepseq
     , derive
@@ -136,6 +157,8 @@ executable haskell-fp-start-exe
     , mwc-random
     , numbers
     , old-locale
+    , parsec
+    , pipes
     , process
     , random
     , raw-strings-qq
@@ -160,6 +183,7 @@ test-suite haskell-fp-start-test
   build-depends:
       base >=4.7 && <5
     , bytestring
+    , conduit
     , containers
     , deepseq
     , derive
@@ -170,6 +194,8 @@ test-suite haskell-fp-start-test
     , mwc-random
     , numbers
     , old-locale
+    , parsec
+    , pipes
     , process
     , random
     , raw-strings-qq
