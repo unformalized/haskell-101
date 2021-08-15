@@ -4,7 +4,7 @@
 
 module Primary.EmptyDataType where
 
-import Data.Void (Void, absurd)
+import Data.Void ( Void, absurd )
 
 testFoo :: Either Void a -> a
 testFoo (Left a) = absurd a

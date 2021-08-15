@@ -45,6 +45,8 @@ dependencies:
 - parsec
 - conduit
 - pipes
+- rank1dynamic
+- constraints
 
 library:
   source-dirs: src

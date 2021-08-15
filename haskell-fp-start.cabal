@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: dcaa0517e27939561951a426718ef998d6b0c8dad3db5347e1652e7c4f9aaa1b
+-- hash: 52a40ff23293ff8a5e5ad619c39b3894d98ca295a87151d4d30d95ca7b098532
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -27,6 +27,14 @@ source-repository head
 
 library
   exposed-modules:
+      Advance.DynamicType
+      Advance.KindPloy
+      Advance.LazyEvaluation
+      Advance.Proxy
+      Advance.Rank
+      Advance.STMonad
+      Advance.Typeable
+      Advance.TypeSystem
       Base.BaseType
       Base.BoolFunction
       Base.Functions
@@ -112,6 +120,7 @@ library
       base >=4.7 && <5
     , bytestring
     , conduit
+    , constraints
     , containers
     , deepseq
     , derive
@@ -125,6 +134,7 @@ library
     , pipes
     , process
     , random
+    , rank1dynamic
     , raw-strings-qq
     , rosezipper
     , semigroups
@@ -147,6 +157,7 @@ executable haskell-fp-start-exe
       base >=4.7 && <5
     , bytestring
     , conduit
+    , constraints
     , containers
     , deepseq
     , derive
@@ -161,6 +172,7 @@ executable haskell-fp-start-exe
     , pipes
     , process
     , random
+    , rank1dynamic
     , raw-strings-qq
     , rosezipper
     , semigroups
@@ -184,6 +196,7 @@ test-suite haskell-fp-start-test
       base >=4.7 && <5
     , bytestring
     , conduit
+    , constraints
     , containers
     , deepseq
     , derive
@@ -198,6 +211,7 @@ test-suite haskell-fp-start-test
     , pipes
     , process
     , random
+    , rank1dynamic
     , raw-strings-qq
     , rosezipper
     , semigroups
