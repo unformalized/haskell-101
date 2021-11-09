@@ -36,6 +36,10 @@ Kind：类型的类型就是 Kind，一个类型构造器可能有零个或者�
 
 ![image-20210802020918336](深入理解 Haskell 类型系统.assets/image-20210802020918336.png)
 
+计算阶的公式：
+
+![image-20211108221018695](%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Haskell%20%E7%B1%BB%E5%9E%8B%E7%B3%BB%E7%BB%9F.assets/image-20211108221018695-16363806334671.png)
+
 例子：
 
 `map :: (a -> b) -> [a] -> [b]` 2元2阶函数
@@ -220,6 +224,7 @@ type Proxy (s :: k) = Tagged (s :: k) ()
 动态类型在模块 `Data.Dynamic` 中
 
 ```haskell
+-- TypeRep 是类型的表示，Obj 存储所有的类型
 data Dynamic = Dynamic TypeRep Obj deriving Typeable
 
 toDyn :: Typeable a => a -> Dynamic
@@ -257,6 +262,119 @@ fix f = (\x -> f (unsafeCoerce x x)) (\x -> f (unsafeCoerce x x))
 ## 一阶多态类型的可类型化
 
 `Typeable` 和 `Dynamic` 都只支持实体类型，但是有时需要支持多态类型，可以使用库 `rank1dynamic` 和 `constraints`（该库支持带类型限定的一阶类型）
+
+### 无重载类型的可类型化
+
+目前 `Typeable` 和 `Dynamic` 只能支持实体类型，不支持多态类型
+
+而库 `(rank1dynamic 和 constraints)` 只能支持一阶类型，对于嵌套的 `forall` 的高秩类型是不可以的。
+
+首先看 `Dynamic` 的实现，`Any` 为 [Universal type](https://en.wikipedia.org/wiki/Universal_type)，可用于表示任何类型，与 `undefined` 可以表示任何类型的值类似
+
+`unsafeCoerce` 为强制类型转换函数，会将任何类型转换为 `SelfObj` 类型，存储在 `DynamicSelf` 构造器中
+
+```haskell
+-- 在 GHC 8.0 以上，Any 在 GHC.Exts 中
+-- Any 是类型 (universal type)，并且它的 kind 为多态 kind
+type SelfObj = Any
+data DynamicSelf = DynamicSelf TypeRep SelfObj
+
+toDynSelf :: Typeable a => a -> DynamicSelf
+toDynSelf v = DynamicSelf (typeOf v) (unsafeCoerce v)
+
+fromDynamicSelf :: Typeable a => DynamicSelf -> Maybe a
+fromDynamicSelf (DynamicSelf t v) = case unsafeCoerce v of
+                                      r | t == typeOf r -> Just r
+                                        | otherwise -> Nothing
+```
+
+一阶类型的可类型化：
+
+```haskell
+-- Rank1Typeable 借助 Any 定义了10个不同的多态类型变量名
+import Data.Rank1Dynamic
+import Data.Rank1Typeable
+import Data.Constraint
+
+typeA :: TypeRep
+typeA = typeOf (undefined :: ANY -> ANY1)
+typeB :: TypeRep
+typeB = typeOf (undefined :: Int -> Bool)
+typeC :: TypeRep
+typeC = typeOf (undefined :: ANY)
+
+dId :: Dynamic
+dId = toDynamic (id :: ANY1 -> ANY1)
+
+d5 :: Dynamic
+d5 = toDynamic (5 :: Int)
+```
+
+![image-20211108225017937](%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Haskell%20%E7%B1%BB%E5%9E%8B%E7%B3%BB%E7%BB%9F.assets/image-20211108225017937-16363830237892.png)
+
+### `GHC` 中类型类的大致实现
+
+对于一个有类型类限定的函数，`GHC` 在实现的时候实际上是把类型类实例的实现放入到一个参数化类型的数据类型中，对于类型类实例的声明相当于这个参数化类型的值。
+
+```haskell
+class EqSelf a where
+  equalSelf :: a -> a -> Bool
+
+newtype EqSelf1 a = MKEq { eqSelf1 :: a -> a -> Bool }
+
+-- 将 EqSelf 类型类转换为 EqSelf1 类型
+instance EqSelf Bool where
+  equalSelf True True   = True
+  equalSelf False False = True
+  equalSelf _ _         = False
+
+-- 把类型类的声明转换为普通函数
+-- 其中类型类限定会转换为对应的实体类型
+boolEq :: EqSelf1 Bool
+boolEq = MKEq eqBool
+  where
+    eqBool True True   = True
+    eqBool False False = True
+    eqBool _ _         = False
+    
+-- dict 中存储了所有实现 EqSelf1 的实例
+equalSelf1 :: EqSelf1 a -> a -> a -> Bool
+equalSelf1 dict a b = (eqSelf1 dict) a b
+```
+
+使用类型类的好处是类型限定可以直接被当成隐含的参数存在于函数的定义中。不需要显式的传递 `Dict` 参数。
+
+#### 隐含参数
+
+先不明确的声明参数
+
+```haskell
+{-# LANGUAGE ImplicitParams #-}
+
+module Advance.ImplicitParams where
+
+import Data.List
+
+-- sortBy' 需要显示的传递一个 cmp 参数，导致要使用 sortBy' 的参数都需要显示
+-- 传递 cmp 参数
+sortBy' :: Ord a => (a -> a -> Bool) -> [a] -> [a]
+sortBy' f = sortBy cmp
+  where
+    cmp x y = if f x y then LT else GT
+
+-- sort' 使用隐含参数扩展，把它放在类型上下文中，无论怎样应用函数，上下文都会被自动继承
+-- 当需要明确传入该参数时，使用 let 或者 where 进行绑定
+sort' :: (?cmp :: a -> a -> Bool) => Ord a => [a] -> [a]
+sort' = sortBy' ?cmp
+
+least xs = head (sort' xs)
+
+maxnum =
+  let ?cmp = ((>) :: Int -> Int -> Bool)
+  in least
+```
+
+### 重载类型的可类型化
 
 
 

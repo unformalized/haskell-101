@@ -47,6 +47,7 @@ dependencies:
 - pipes
 - rank1dynamic
 - constraints
+- ghc-prim
 
 library:
   source-dirs: src

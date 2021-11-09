@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 52a40ff23293ff8a5e5ad619c39b3894d98ca295a87151d4d30d95ca7b098532
+-- hash: 467bab2984220d02625d246543d365931e14e4f78a19136dfceb810518918e3d
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -28,12 +28,16 @@ source-repository head
 library
   exposed-modules:
       Advance.DynamicType
+      Advance.ImplicitParams
       Advance.KindPloy
       Advance.LazyEvaluation
       Advance.Proxy
       Advance.Rank
       Advance.STMonad
       Advance.Typeable
+      Advance.Typeable2
+      Advance.TypeclassImpl
+      Advance.TypeclassTypeable
       Advance.TypeSystem
       Base.BaseType
       Base.BoolFunction
@@ -125,6 +129,7 @@ library
     , deepseq
     , derive
     , directory
+    , ghc-prim
     , ieee754
     , mtl
     , mwc-random
@@ -162,6 +167,7 @@ executable haskell-fp-start-exe
     , deepseq
     , derive
     , directory
+    , ghc-prim
     , haskell-fp-start
     , ieee754
     , mtl
@@ -201,6 +207,7 @@ test-suite haskell-fp-start-test
     , deepseq
     , derive
     , directory
+    , ghc-prim
     , haskell-fp-start
     , ieee754
     , mtl
