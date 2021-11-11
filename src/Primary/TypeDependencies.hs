@@ -58,6 +58,9 @@ class (Num a, Num b, Num c) => GPlus a b c | a b -> c where
 instance GPlus Int Float Float where
   plus a b = fromIntegral a + b
 
+instance GPlus Int Double Double where
+  plus a b = fromIntegral a + b
+
 -- instance GPlus Int Float Double where
 --   plus a b = fromIntegral a + float2Double b
 

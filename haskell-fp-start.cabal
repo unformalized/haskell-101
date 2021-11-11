@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 467bab2984220d02625d246543d365931e14e4f78a19136dfceb810518918e3d
+-- hash: 760e47fb72e34c94b1230ab57449ac5adb4c6219b836de193e11b5a225dd1bba
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -31,6 +31,7 @@ library
       Advance.ImplicitParams
       Advance.KindPloy
       Advance.LazyEvaluation
+      Advance.MonomorphismRestriction
       Advance.Proxy
       Advance.Rank
       Advance.STMonad
@@ -38,6 +39,9 @@ library
       Advance.Typeable2
       Advance.TypeclassImpl
       Advance.TypeclassTypeable
+      Advance.TypeFamily
+      Advance.TypeFamily2
+      Advance.TypeFamily3
       Advance.TypeSystem
       Base.BaseType
       Base.BoolFunction

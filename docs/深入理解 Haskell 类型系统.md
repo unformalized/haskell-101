@@ -376,6 +376,197 @@ maxnum =
 
 ### 重载类型的可类型化
 
+## 单一同态限定
+
+Haskell 为避免重复计算和类型的歧义，引入单一同态限定，会影响类型类限定和类受型类限定的 $\eta$ 化简
+
+- 重复计算：有时候对于 `(Num a, Num b) => (a, b)` 类型的结果，可能会对 a 和 b 进行不同的两次运算。使用 `genericLength` 试验
+
+  ```haskell
+  >> :m +Data.List
+  let f xs = let len = genericLength xs in (len, len)
+  >> :t f
+  f :: (Num a1, Num b) => [a2] -> (a1, b)
+  >> :t eq
+  eq :: Eq a => a -> a -> Bool
+  >> let ev = even
+  >> :t ev
+  ev :: Integral a => a -> Bool
+  -- 开启单一同态限定
+  >> :set -XMonomorphismRestriction 
+  >> let f xs = let len = genericLength xs in (len, len)
+  >> :t f
+  f :: Num b => [a] -> (b, b)
+  >> let eq = (==)
+  >> :t eq
+  eq :: () -> () -> Bool
+  >> let ev = even
+  >> :t ev
+  ev :: Integer -> Bool
+  ```
+
+  Haskell 中整数类型默认使用 `Integer` ，浮点数默认使用 `Double`。不开启单一同态限定，会造成 Haskell 需要把计算好的类型再重新使用 `Num` 与 `Fractional` 限定，实质上做了一个隐式的类型转换。
+
+  通过 `-ddump-impl`  编译器选项打印出表达式  `x = x + 1`  的 `Tidy Core` 中间表达
+
+  ```
+  {-# LANGUAGE MonomorphismRestriction #-} -- 开启单一同态限定
+  ==================== Tidy Core ====================
+  Result size of Tidy Core
+    = {terms: 31, types: 31, coercions: 0, joins: 0/1}
+  
+  -- RHS size: {terms: 4, types: 1, coercions: 0, joins: 0/0}
+  x :: Integer
+  [GblId]
+  x = break<2>() + @ Integer GHC.Num.$fNumInteger 1 1
+  
+  {-# LANGUAGE NoMonomorphismRestriction #-} -- 关闭单一同态限定
+  ==================== Tidy Core ====================
+  Result size of Tidy Core
+    = {terms: 45, types: 61, coercions: 0, joins: 0/1}
+  
+  -- RHS size: {terms: 10, types: 7, coercions: 0, joins: 0/0}
+  x :: forall a. Num a => a
+  [GblId, Arity=1, Caf=NoCafRefs, Unf=OtherCon []]
+  x = \ (@ a_a3OD) ($dNum_a3ON :: Num a_a3OD) ->
+        break<2>()
+        + @ a_a3OD
+          $dNum_a3ON
+          (fromInteger @ a_a3OD $dNum_a3ON 1)
+          (fromInteger @ a_a3OD $dNum_a3ON 1)
+  ```
+
+  `Tidy Core` 中 `@` 后为类型
+
+  `(+) :: Num a => a -> a -> a `
+
+  开启单一同态限定后，`x = x + 1` 仍为表达式，`GHC.Num.$fNumInteger` 代表 `Integer` 实现 `Num` 类型类的实例
+
+  关闭后，`x = x + 1` 为函数，接受一个类型参数和一个对应类型的 `Num` 实例，传入 `Integer` 和 `$fNumInteger` 则与开启后的 core 完全相同， `(fromInteger @ a_a3OD $dNum_a3ON 1)` 则表示求值计算时使用 `Integer` 类型，但是最终需要转换为 `Num` 类型类限定
+
+  ```haskell
+  >> let x = 1 + 1
+  >> :sprint x
+  x = _
+  >> x
+  2
+  >> :sprint x
+  x = _
+  >> :t x
+  x :: Num a => a
+  >> :set -XMonomorphismRestriction 
+  >> let x = 1 + 2
+  >> :sprint x
+  x = _
+  >> x
+  3
+  >> :sprint x
+  x = 3
+  >> :t x
+  x :: Integer
+  ```
+
+  上述现象的原因为数类型的值若不能指定一个实体类型，则会被重载，导致又回到未求值的状态
+
+  在未开启单一同态限定时，即使进行求值，但最终会受到 `Num` 限制。
+
+- 类型歧义： 
+
+  ```haskell
+  -- reads :: Read a => Reads a
+  -- type Reads a = String -> [(a, String)]
+  
+  {-# LANGUAGE MonomorphismRestriction #-}
+  testReads = reads "()" -- error, Reads a 无法进行隐式约束，必须显式约束
+  
+  {-# LANGUAGE NoMonomorphismRestriction #-}
+  testReads = let res = reads "()"
+    in case res of
+      [] -> error "error"
+      ([n,s]:_) -> s -- error n 无法进行隐式约束，必须显式约束
+  ```
+
+  ## 类型家族
+
+  类型家族可以理解为在类型层面上定义的计算，`Haskell` 的类型运算是图灵完备的，可以完整地 $\lambda$ 演算。在极端情况下，类型检查可能不会停止。`GHC` 就不会停止。
+
+  ### 类型的函数依赖和关联类型
+
+  ```haskell
+  {-# LANGUAGE TypeFamilies #-}
+  
+  module Advance.TypeFamily where
+  
+  class (Eq ce) => Collections ce where
+    type Element ce :: * -- 定义一个类型函数，
+    empty :: ce
+    insert :: Element ce -> ce -> ce
+    member :: Element ce -> ce -> Bool
+  
+  instance (Eq a) => Collections [a] where
+    type Element [a] = a -- 实现上述的类型函数
+    empty = []
+    insert x xs = x:xs
+    member x xs = x `elem` xs
+  ```
+
+  可以看到我们在类型中定义了一个类型函数，并在类型类实例中实现了它。而 `TypeFamilies` 扩展可以让我们在全局中定于类型函数。
+
+```haskell
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
+
+module Advance.TypeFamily2 where
+
+type family Elem a :: *
+type instance Elem [e] = e
+
+-- (~) :: k -> k -> Constraint 代表 k 与 k 的类型必须相同
+-- 这里就代表 Elem ce 的结果与 e 相同
+class (Elem ce ~ e) => Collection e ce where
+  empty :: ce
+  insert :: e -> ce -> ce
+  member :: e -> ce -> Bool
+  
+-- Functional Dependecies
+-- 类型依赖仅仅是将 typeclass 参数进行依赖绑定，ce 参数能决定唯一的 e 参数
+-- 当 ce 确定时，则 e 也是确定的，类型家族则用处更为广泛
+class Collection e ce | ce -> e where
+  empty :: ce
+  insert :: e -> ce -> ce
+  member :: e -> ce -> Bool
+```
+
+#### Data Family
+
+```haskell
+{-# LANGUAGE TypeFamilies #-}
+
+module Advance.TypeFamily3 where
+
+import Data.Vector
+import Data.Sequence hiding (replicate)
+import Data.Vector.Mutable (new)
+import Prelude hiding (replicate)
+
+data ArrayS a = MakeArrayInt (Vector Int) | MakeArrayChar (Seq Char)
+
+data family Array a
+data instance Array Int = MkArrayInt (Vector Int)
+data instance Array Char = MkArrayChar (Seq Char)
+
+type family Array' a :: *
+type instance Array' Int = Vector Int
+type instance Array' Char = Seq Char
+
+arrInt :: Array Int
+arrInt = MkArrayInt (replicate 5 4)
+```
+
+使用 `data family 和 type family` 都可以让参数化类型，接受不同类型时拥有不同的构造函数
+
+
+
 
 
 
