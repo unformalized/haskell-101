@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 760e47fb72e34c94b1230ab57449ac5adb4c6219b836de193e11b5a225dd1bba
+-- hash: 0b78e9f3c2922c3a82ad421fa6d23d5f9e1c5ea11ce19fb3df3bff6b6e0afea7
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -39,6 +39,8 @@ library
       Advance.Typeable2
       Advance.TypeclassImpl
       Advance.TypeclassTypeable
+      Advance.TypeComputation
+      Advance.TypeComputation2
       Advance.TypeFamily
       Advance.TypeFamily2
       Advance.TypeFamily3
@@ -120,6 +122,7 @@ library
       Primary.XMLZipper
       Primary.Zipper
       Start
+      Test.Vector
   other-modules:
       Paths_haskell_fp_start
   hs-source-dirs:
