@@ -15,6 +15,7 @@ type family (a :: Nat) + (b :: Nat) :: Nat where
   Z   + m = m
   S n + m = n + S m
 
-type family (n :: Nat) * (m :: Nat) :: Nat where
-  Z   * m = Z
-  S n * m = (m * n) + m
+-- type family (n :: Nat) * (m :: Nat) :: Nat where
+--  Z   * m = Z
+--  S n * m = (m * n) + m
+

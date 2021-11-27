@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 0b78e9f3c2922c3a82ad421fa6d23d5f9e1c5ea11ce19fb3df3bff6b6e0afea7
+-- hash: 88c0c9fd071cb9b38d9ece48869606fcc2d8884798df10ffff69f8682db7b760
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -27,13 +27,22 @@ source-repository head
 
 library
   exposed-modules:
+      Advance.DependentType
       Advance.DynamicType
+      Advance.GEq
       Advance.ImplicitParams
+      Advance.InjectiveTypeFamily
       Advance.KindPloy
       Advance.LazyEvaluation
       Advance.MonomorphismRestriction
+      Advance.MyShow
       Advance.Proxy
       Advance.Rank
+      Advance.RecordFields
+      Advance.RecordsPrototype
+      Advance.SafeTypeConvert
+      Advance.SplitClass
+      Advance.SplitClasses
       Advance.STMonad
       Advance.Typeable
       Advance.Typeable2
