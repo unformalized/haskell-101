@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a5fd3acaa41bb6b7f2259e8ed6b52da1d9cd4db43ce136153d6c59f11361abcf
+-- hash: 036add20c8bd45b78c09fc0a65fdafd63ab0318d7c7c7db12c3faa25270e3889
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -63,6 +63,7 @@ library
       Content
       Generic.Generic
       Generic.Generic1
+      Generic.GenericShow
       Intermediate.CalcByStack
       Intermediate.Calculator
       Intermediate.CFG
@@ -134,6 +135,7 @@ library
       Primary.XMLZipper
       Primary.Zipper
       Start
+      Test.BinaryTest
       Test.Vector
   other-modules:
       Paths_haskell_fp_start
@@ -141,6 +143,7 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , binary
     , bytestring
     , conduit
     , constraints
@@ -179,6 +182,7 @@ executable haskell-fp-start-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , binary
     , bytestring
     , conduit
     , constraints
@@ -219,6 +223,7 @@ test-suite haskell-fp-start-test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , binary
     , bytestring
     , conduit
     , constraints
