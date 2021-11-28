@@ -1,5 +1,4 @@
 {-# LANGUAGE MonomorphismRestriction #-}
-{-# OPTIONS_GHC -ddump-simpl #-}
 
 module Advance.MonomorphismRestriction where
 

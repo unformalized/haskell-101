@@ -48,6 +48,7 @@ dependencies:
 - rank1dynamic
 - constraints
 - ghc-prim
+- binary
 
 library:
   source-dirs: src
