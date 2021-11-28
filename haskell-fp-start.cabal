@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 88c0c9fd071cb9b38d9ece48869606fcc2d8884798df10ffff69f8682db7b760
+-- hash: a5fd3acaa41bb6b7f2259e8ed6b52da1d9cd4db43ce136153d6c59f11361abcf
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -54,12 +54,15 @@ library
       Advance.TypeFamily2
       Advance.TypeFamily3
       Advance.TypeSystem
+      Advance.UseOfCoerce
       Base.BaseType
       Base.BoolFunction
       Base.Functions
       Base.LibFuns
       Base.Typeclass
       Content
+      Generic.Generic
+      Generic.Generic1
       Intermediate.CalcByStack
       Intermediate.Calculator
       Intermediate.CFG
