@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 036add20c8bd45b78c09fc0a65fdafd63ab0318d7c7c7db12c3faa25270e3889
+-- hash: d7b4bfa5c1421bf7e5026574cd72313b7e703763ecb8aab04da5fb9bc5bdea3f
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -61,8 +61,13 @@ library
       Base.LibFuns
       Base.Typeclass
       Content
+      Generic.DataJSONOperator
+      Generic.DataPrettyPrint
+      Generic.DataSequelize
+      Generic.GeneratedGenericClassInstance
       Generic.Generic
       Generic.Generic1
+      Generic.Generic3
       Generic.GenericShow
       Intermediate.CalcByStack
       Intermediate.Calculator
@@ -142,7 +147,9 @@ library
   hs-source-dirs:
       src
   build-depends:
-      base >=4.7 && <5
+      GenericPretty
+    , aeson
+    , base >=4.7 && <5
     , binary
     , bytestring
     , conduit
@@ -159,6 +166,7 @@ library
     , old-locale
     , parsec
     , pipes
+    , pretty
     , process
     , random
     , rank1dynamic
@@ -181,7 +189,9 @@ executable haskell-fp-start-exe
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      GenericPretty
+    , aeson
+    , base >=4.7 && <5
     , binary
     , bytestring
     , conduit
@@ -199,6 +209,7 @@ executable haskell-fp-start-exe
     , old-locale
     , parsec
     , pipes
+    , pretty
     , process
     , random
     , rank1dynamic
@@ -222,7 +233,9 @@ test-suite haskell-fp-start-test
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      GenericPretty
+    , aeson
+    , base >=4.7 && <5
     , binary
     , bytestring
     , conduit
@@ -240,6 +253,7 @@ test-suite haskell-fp-start-test
     , old-locale
     , parsec
     , pipes
+    , pretty
     , process
     , random
     , rank1dynamic

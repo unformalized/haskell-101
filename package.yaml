@@ -49,6 +49,9 @@ dependencies:
 - constraints
 - ghc-prim
 - binary
+- aeson
+- pretty
+- GenericPretty
 
 library:
   source-dirs: src
