@@ -31,6 +31,7 @@ import Primary.DeriveLib
 import Primary.FoldableTree
 import Primary.Traversable
 import Primary.TypeDependencies ()
+import SYB.SYB
 
 
 someFunc :: IO ()
