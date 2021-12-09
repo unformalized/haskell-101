@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: d7b4bfa5c1421bf7e5026574cd72313b7e703763ecb8aab04da5fb9bc5bdea3f
+-- hash: c42e8a9eda4f2640f915b4e6d7b9eb412614588c302c16a70f0db8bbf3e1868c
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -65,6 +65,7 @@ library
       Generic.DataPrettyPrint
       Generic.DataSequelize
       Generic.GeneratedGenericClassInstance
+      Generic.GenerateGenericProblem
       Generic.Generic
       Generic.Generic1
       Generic.Generic3
@@ -140,6 +141,8 @@ library
       Primary.XMLZipper
       Primary.Zipper
       Start
+      SYB.SYB
+      SYB.TypeableAndDataClass
       Test.BinaryTest
       Test.Vector
   other-modules:

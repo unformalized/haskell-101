@@ -1,9 +1,8 @@
 -- | ST Monad
-
 module Advance.STMonad where
 
-import Data.STRef
 import Control.Monad.ST
+import Data.STRef
 
 -- 使用可变变量进行操作时运行会更快，计算过程不需要其他副作用
 
@@ -24,13 +23,13 @@ factorailST n accRef = do
   if num < 1
     then readSTRef accRef
     else do
-    acc <- readSTRef accRef
-    writeSTRef accRef (acc * n)
-    writeSTRef numRef (num - 1)
-    factorailST (num - 1) accRef
+      acc <- readSTRef accRef
+      writeSTRef accRef (acc * n)
+      writeSTRef numRef (num - 1)
+      factorailST (num - 1) accRef
 
 fact :: Int -> Int
 fact n =
   runST $ do
-  accRef <- newSTRef 1
-  factorailST n accRef
+    accRef <- newSTRef 1
+    factorailST n accRef
