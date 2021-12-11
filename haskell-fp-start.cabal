@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c42e8a9eda4f2640f915b4e6d7b9eb412614588c302c16a70f0db8bbf3e1868c
+-- hash: 29256a1ada860301ecedc01b57e245d48a39a39b339a65afe035661a61d1bc14
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -141,6 +141,7 @@ library
       Primary.XMLZipper
       Primary.Zipper
       Start
+      SYB.MoandTrans
       SYB.SYB
       SYB.TypeableAndDataClass
       Test.BinaryTest
