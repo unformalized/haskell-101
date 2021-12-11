@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 29256a1ada860301ecedc01b57e245d48a39a39b339a65afe035661a61d1bc14
+-- hash: 859ac6127d072b199ea4828b3d9089851b01cad90fd0d8e3fb9f92938c6d43f1
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -142,7 +142,11 @@ library
       Primary.Zipper
       Start
       SYB.MoandTrans
+      SYB.Reflection
+      SYB.Size
       SYB.SYB
+      SYB.SYB2
+      SYB.SYBBinary
       SYB.TypeableAndDataClass
       Test.BinaryTest
       Test.Vector
@@ -177,6 +181,7 @@ library
     , raw-strings-qq
     , rosezipper
     , semigroups
+    , syb
     , text
     , time
     , transformers >=0.4.1 && <0.6
@@ -220,6 +225,7 @@ executable haskell-fp-start-exe
     , raw-strings-qq
     , rosezipper
     , semigroups
+    , syb
     , text
     , time
     , transformers >=0.4.1 && <0.6
@@ -264,6 +270,7 @@ test-suite haskell-fp-start-test
     , raw-strings-qq
     , rosezipper
     , semigroups
+    , syb
     , text
     , time
     , transformers >=0.4.1 && <0.6
