@@ -7,6 +7,7 @@
 -- {-# LANGUAGE StandaloneDeriving #-}
 -- {-# LANGUAGE TypeSynonymInstances #-}
 
+{-# LANGUAGE KindSignatures #-}
 module SYB.SYB where
 
 import Data.Char (toUpper)
@@ -201,7 +202,7 @@ hcP :: Person -> [HcInfo] -> HcInfo
 hcP p _ = ([], 1)
 
 addResults :: [HcInfo] -> HcInfo
-addResults rs = (concat (map fst rs), sum (map snd rs))
+addResults rs = (concatMap fst rs, sum (map snd rs))
 
 -- department
 
@@ -232,3 +233,38 @@ depName (D n m sub) = D (map toUpper n) m sub
 
 capComp :: Data a => a -> a
 capComp = everywhere (id `extT` depName `extT` capName)
+
+ext0 :: (Typeable a, Typeable b) => c a -> c b -> c a
+ext0 def ext = fromMaybe def (gcast ext)
+
+newtype M m x = M { unM :: x -> m x }
+
+extM :: (Monad m, Typeable a, Typeable b) => (a -> m a) -> (b -> m b) -> a -> m a
+extM def ext = unM (ext0 (M def) (M ext))
+
+-- gfold
+
+-- implements gmapT, gmapQ, gmapM by gfold
+
+newtype ID x = ID { unID :: x }
+
+gmapT' :: forall a . Data a => (forall b. Data b => b -> b) -> a -> a
+gmapT' f x = unID (gfoldl k ID x)
+  where
+    k :: Data d => ID (d -> b) -> d -> ID b
+    k (ID c) x = ID (c (f x))
+
+gmapM' :: forall a (m :: * -> *). (Data a, Monad m) => (forall d. Data d => d -> m d) -> a -> m a
+gmapM' f = gfoldl k return
+  where
+    k c x = do
+      c' <- c
+      x' <- f x
+      return (c' x')
+
+newtype Q r a = Q { unQ :: [r] -> [r] }
+
+gmapQ' :: forall a r. Data a => (forall b. Data b => b -> r) -> a -> [r]
+gmapQ' f x = unQ (gfoldl k (const (Q id)) x) []
+  where
+    k (Q c) x = Q $ \rs -> c (f x : rs)
