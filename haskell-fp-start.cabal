@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 859ac6127d072b199ea4828b3d9089851b01cad90fd0d8e3fb9f92938c6d43f1
+-- hash: 400715b277986704970bc0b141529624bf76dab1ef8fe7d2b935f4846f2a0245
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -140,6 +140,14 @@ library
       Primary.TypeDependencies
       Primary.XMLZipper
       Primary.Zipper
+      RealWorld.FileIO.ByteStringIO
+      RealWorld.FileIO.FileIO1
+      RealWorld.FileIO.HighestClose
+      RealWorld.FileIO.TempFileIO
+      RealWorld.FileIO.Useful
+      RealWorld.Reg.Glob
+      RealWorld.Reg.GlobRegex
+      RealWorld.Reg.RegExp
       Start
       SYB.MoandTrans
       SYB.Reflection
@@ -166,6 +174,7 @@ library
     , deepseq
     , derive
     , directory
+    , filepath
     , ghc-prim
     , ieee754
     , mtl
@@ -179,6 +188,7 @@ library
     , random
     , rank1dynamic
     , raw-strings-qq
+    , regex-posix
     , rosezipper
     , semigroups
     , syb
@@ -209,6 +219,7 @@ executable haskell-fp-start-exe
     , deepseq
     , derive
     , directory
+    , filepath
     , ghc-prim
     , haskell-fp-start
     , ieee754
@@ -223,6 +234,7 @@ executable haskell-fp-start-exe
     , random
     , rank1dynamic
     , raw-strings-qq
+    , regex-posix
     , rosezipper
     , semigroups
     , syb
@@ -254,6 +266,7 @@ test-suite haskell-fp-start-test
     , deepseq
     , derive
     , directory
+    , filepath
     , ghc-prim
     , haskell-fp-start
     , ieee754
@@ -268,6 +281,7 @@ test-suite haskell-fp-start-test
     , random
     , rank1dynamic
     , raw-strings-qq
+    , regex-posix
     , rosezipper
     , semigroups
     , syb
