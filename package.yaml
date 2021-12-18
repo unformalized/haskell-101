@@ -55,6 +55,7 @@ dependencies:
   - syb
   - regex-posix
   - filepath
+  - old-time
 
 library:
   source-dirs: src

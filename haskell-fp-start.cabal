@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 400715b277986704970bc0b141529624bf76dab1ef8fe7d2b935f4846f2a0245
+-- hash: 0bbf6932b1aba1f154af646d1b6c417c34f0262a8be3f59889ad46822d811d60
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -148,6 +148,9 @@ library
       RealWorld.Reg.Glob
       RealWorld.Reg.GlobRegex
       RealWorld.Reg.RegExp
+      RealWorld.SearchSystem.BetterPredicate
+      RealWorld.SearchSystem.RecursiveContents
+      RealWorld.SearchSystem.SimpleFind
       Start
       SYB.MoandTrans
       SYB.Reflection
@@ -181,6 +184,7 @@ library
     , mwc-random
     , numbers
     , old-locale
+    , old-time
     , parsec
     , pipes
     , pretty
@@ -227,6 +231,7 @@ executable haskell-fp-start-exe
     , mwc-random
     , numbers
     , old-locale
+    , old-time
     , parsec
     , pipes
     , pretty
@@ -274,6 +279,7 @@ test-suite haskell-fp-start-test
     , mwc-random
     , numbers
     , old-locale
+    , old-time
     , parsec
     , pipes
     , pretty

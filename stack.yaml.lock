@@ -550,4 +550,11 @@ packages:
       sha256: 4d3e05706978f75df4bff7b890a1b2c4d88b7cd57e0155ecb238599a24aa7c63
   original:
     hackage: regex-base-0.94.0.2@sha256:2561adac8ce373910948066debe090a22b336b129ba5af18c0332524d16e72ce,2635
+- completed:
+    hackage: old-time-1.1.0.3@sha256:c91fbb3ee73d20ccd015842b30f1f29a304893ebe0ae3128b7bbc13d5bb0d4c8,1328
+    pantry-tree:
+      size: 810
+      sha256: 890bbbdf4175a409efd7c7c9fe153b71680e33bebeb74c9351d7d9d3a59d3d0e
+  original:
+    hackage: old-time-1.1.0.3@sha256:c91fbb3ee73d20ccd015842b30f1f29a304893ebe0ae3128b7bbc13d5bb0d4c8,1328
 snapshots: []
