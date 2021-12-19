@@ -62,7 +62,7 @@ myTest path _ (Just size) _ = takeExtension path == ".cpp" && size > 131072
 pathP :: InfoP FilePath
 pathP path _ _ _ = path
 
-equalP :: (Eq a) => InfoP a -> a -> InfoP Bool
+equalP, (==?) :: (Eq a) => InfoP a -> a -> InfoP Bool
 equalP f k w x y z = f w x y z == k
 
 sizeP :: InfoP Integer
@@ -79,6 +79,42 @@ findBySize s = betterFind (equalP sizeP s)
 liftP :: (a -> b -> c) -> InfoP a -> b -> InfoP c
 liftP op f k w x y z = f w x y z `op` k
 
-greaterP, lesserP :: (Ord a) => InfoP a -> a -> InfoP Bool
+greaterP, lesserP, (>?), (<?) :: (Ord a) => InfoP a -> a -> InfoP Bool
 greaterP = liftP (>)
 lesserP = liftP (<)
+
+liftP2 :: (a -> b -> c) -> InfoP a -> InfoP b -> InfoP c
+liftP2 q f g w x y z = f w x y z `q` g w x y z
+
+andP, (&&?) :: InfoP Bool -> InfoP Bool -> InfoP Bool
+andP = liftP2 (&&)
+
+orP, (||?) :: InfoP Bool -> InfoP Bool -> InfoP Bool
+orP = liftP2 (||)
+
+constP :: a -> InfoP a
+constP k _ _ _ _ = k
+
+-- 使用 liftP2 实现 liftP
+
+liftP' :: (a -> b -> c) -> InfoP a -> b -> InfoP c
+liftP' q f k w x y z = f w x y z `q` constP k w x y z
+
+liftPath :: (FilePath -> a) -> InfoP a
+liftPath f w _ _ _ = f w
+
+myTest' :: InfoP Bool
+myTest' = (liftPath takeExtension `equalP` ".cpp") `andP` (sizeP `greaterP` 131072)
+
+(==?) = equalP
+
+(&&?) = andP
+
+(>?) = greaterP
+
+(<?) = lesserP
+
+(||?) = orP
+
+myTest'' :: InfoP Bool
+myTest'' = (liftPath takeExtension ==? ".cpp") &&? (sizeP >? 131072)
