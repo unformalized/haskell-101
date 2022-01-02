@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 905332902bb6e213ab5f560dad8b83071ebb840e4a66cbb5e75ac352f607d205
+-- hash: 7d0c6ae25572b8048b23f9918be20c73573bd7a24cf342056240310470320b53
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -150,6 +150,7 @@ library
       RealWorld.Reg.RegExp
       RealWorld.SearchSystem.BetterPredicate
       RealWorld.SearchSystem.ControlVisit
+      RealWorld.SearchSystem.FindCommand
       RealWorld.SearchSystem.FoldDir
       RealWorld.SearchSystem.RecursiveContents
       RealWorld.SearchSystem.SimpleFind
