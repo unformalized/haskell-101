@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: eb4dd2ad0bd0b0a863fa22c0f28c3bbb5c27560b8aa2d0b4f5843d3ef505f8c8
+-- hash: 9322ebfbf2f63dca36879e6ed9f4cfa8a16fb6ee41b58f48da99ffc6b2b4bd14
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -70,6 +70,7 @@ library
       Generic.Generic1
       Generic.Generic3
       Generic.GenericShow
+      HaskellInDepth.Chapter1.Vocab1
       Intermediate.CalcByStack
       Intermediate.Calculator
       Intermediate.CFG
