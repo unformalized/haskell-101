@@ -1,7 +1,7 @@
 module HaskellInDepth.Chapter1.Vocab1 where
 
 import Data.Char (toLower)
-import Data.List (group, sort, sortBy)
+import Data.List (group, sortBy)
 
 quickSort :: Ord a => [a] -> [a]
 quickSort [] = []
