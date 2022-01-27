@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 0e9d635591083fc060b2cb1601cce40a7b56112c9e2e943259e53436f0474bd5
+-- hash: 2dd4c595982ae08d9b96da80f4d68e6270c229b863197eef1550bd781263555f
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -70,8 +70,11 @@ library
       Generic.Generic1
       Generic.Generic3
       Generic.GenericShow
+      HaskellInDepth.Chapter1.MySelfSort
       HaskellInDepth.Chapter1.Vocab1
       HaskellInDepth.Chapter1.Vocab2
+      HaskellInDepth.Chapter1.Vocab3
+      HaskellInDepth.Chapter1.Vocab4
       Intermediate.CalcByStack
       Intermediate.Calculator
       Intermediate.CFG
@@ -189,6 +192,7 @@ library
     , derive
     , directory
     , filepath
+    , fmt
     , ghc-prim
     , ieee754
     , mtl
@@ -236,6 +240,7 @@ executable haskell-fp-start-exe
     , derive
     , directory
     , filepath
+    , fmt
     , ghc-prim
     , haskell-fp-start
     , ieee754
@@ -285,6 +290,7 @@ test-suite haskell-fp-start-test
     , derive
     , directory
     , filepath
+    , fmt
     , ghc-prim
     , haskell-fp-start
     , ieee754

@@ -57,6 +57,7 @@ dependencies:
   - filepath
   - old-time
   - QuickCheck
+  - fmt
 
 library:
   source-dirs: src
