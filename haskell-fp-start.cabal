@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 2dd4c595982ae08d9b96da80f4d68e6270c229b863197eef1550bd781263555f
+-- hash: 96e2e8aa9e960cc52f7571273cbe1edf611d3618b3f5db0f170e82101b1d88b3
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -75,6 +75,7 @@ library
       HaskellInDepth.Chapter1.Vocab2
       HaskellInDepth.Chapter1.Vocab3
       HaskellInDepth.Chapter1.Vocab4
+      HaskellInDepth.Chapter2.Radar
       Intermediate.CalcByStack
       Intermediate.Calculator
       Intermediate.CFG
