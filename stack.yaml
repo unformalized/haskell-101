@@ -126,6 +126,10 @@ extra-deps:
   - time-locale-compat-0.1.1.5@sha256:24b10ab3de20f5fc00f0e4f7832ac66dd5597033b78cff3bd6b4505d8a652e5b,1650
   - clock-0.8.2@sha256:473ffd59765cc67634bdc55b63c699a85addf3a024089073ec2a862881e83e2a,4313
   - double-conversion-2.0.2.0@sha256:934ef2ffa06e196ab7df9e130bedee0228dc54bf879822bc2349624e1dfd38e4,3624
+  - text-show-3.9.3@sha256:6c57a00a161193a4782cf7e5966accaddac8d1a5d7a2d24a8840450702a576e8,16822
+  - bytestring-builder-0.10.8.2.0@sha256:6b2b812cdac53f5a2c82376a416dde04adbb5ca3e1604c0d075368a0498f762b,3781
+  - generic-deriving-1.14.1@sha256:72695b8478606f3a34d311c0310d983c664614643f59bfedeefd291a82b2c30c,6739
+  - th-lift-0.8.2@sha256:955f3ad62b202d2ff37a616d2155ad9ce30879c7c63edab1f1ec69d757d70ed1,2677
 # Dependency packages to be pulled from upstream that are not in the resolver.
 # These entries can reference officially published versions as well as
 # forks / in-progress versions pinned to a git hash. For example:

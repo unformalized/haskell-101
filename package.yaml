@@ -58,6 +58,7 @@ dependencies:
   - old-time
   - QuickCheck
   - fmt
+  - text-show
 
 library:
   source-dirs: src

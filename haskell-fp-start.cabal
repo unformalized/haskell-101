@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 0662adc2374eb5a2aeff1e65741ef1d76b2ff0743921cbc085feb8720ef98e5e
+-- hash: 7b06270d3f028a230b862737d96e9349e2de01ff8b7ad71b161cd5107a94b8da
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -78,6 +78,8 @@ library
       HaskellInDepth.Chapter2.Numeric
       HaskellInDepth.Chapter2.Radar
       HaskellInDepth.Chapter2.Random
+      HaskellInDepth.Chapter2.ReadAndShow
+      HaskellInDepth.Chapter2.TextShow
       Intermediate.CalcByStack
       Intermediate.Calculator
       Intermediate.CFG
@@ -215,6 +217,7 @@ library
     , semigroups
     , syb
     , text
+    , text-show
     , time
     , transformers >=0.4.1 && <0.6
     , transformers-base
@@ -264,6 +267,7 @@ executable haskell-fp-start-exe
     , semigroups
     , syb
     , text
+    , text-show
     , time
     , transformers >=0.4.1 && <0.6
     , transformers-base
@@ -314,6 +318,7 @@ test-suite haskell-fp-start-test
     , semigroups
     , syb
     , text
+    , text-show
     , time
     , transformers >=0.4.1 && <0.6
     , transformers-base
