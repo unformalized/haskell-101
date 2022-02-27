@@ -1,6 +1,6 @@
 module Start where
 
-import RealWorld.FileIO.TempFileIO (doMyAction)
+import HaskellInDepth.Chapter3.Start (start)
 
 someFunc :: IO ()
-someFunc = doMyAction
+someFunc = start

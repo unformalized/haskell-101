@@ -59,6 +59,14 @@ dependencies:
   - QuickCheck
   - fmt
   - text-show
+  - network
+  - optparse-applicative
+  - cassava
+  - colonnade
+  - blaze-html
+  - blaze-colonnade
+  - Chart
+  - Chart-diagrams
 
 library:
   source-dirs: src

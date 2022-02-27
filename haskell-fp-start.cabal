@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 7b06270d3f028a230b862737d96e9349e2de01ff8b7ad71b161cd5107a94b8da
+-- hash: 4ed7784bce3141e149db75411249f3d5314e2de5e64cddb854203ac4a2d68b52
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -75,11 +75,18 @@ library
       HaskellInDepth.Chapter1.Vocab2
       HaskellInDepth.Chapter1.Vocab3
       HaskellInDepth.Chapter1.Vocab4
+      HaskellInDepth.Chapter2.ComputationalContext
       HaskellInDepth.Chapter2.Numeric
       HaskellInDepth.Chapter2.Radar
       HaskellInDepth.Chapter2.Random
       HaskellInDepth.Chapter2.ReadAndShow
       HaskellInDepth.Chapter2.TextShow
+      HaskellInDepth.Chapter3.Charts
+      HaskellInDepth.Chapter3.HtmlReport
+      HaskellInDepth.Chapter3.Params
+      HaskellInDepth.Chapter3.QuoteData
+      HaskellInDepth.Chapter3.Start
+      HaskellInDepth.Chapter3.StatReport
       Intermediate.CalcByStack
       Intermediate.Calculator
       Intermediate.CFG
@@ -156,6 +163,7 @@ library
       RealWorld.FileIO.HighestClose
       RealWorld.FileIO.TempFileIO
       RealWorld.FileIO.Useful
+      RealWorld.Network.TcpServer
       RealWorld.ParsePgm.Parse
       RealWorld.ParsePgm.Pnm
       RealWorld.Reg.Glob
@@ -184,12 +192,18 @@ library
   hs-source-dirs:
       src
   build-depends:
-      GenericPretty
+      Chart
+    , Chart-diagrams
+    , GenericPretty
     , QuickCheck
     , aeson
     , base >=4.7 && <5
     , binary
+    , blaze-colonnade
+    , blaze-html
     , bytestring
+    , cassava
+    , colonnade
     , conduit
     , constraints
     , containers
@@ -202,9 +216,11 @@ library
     , ieee754
     , mtl
     , mwc-random
+    , network
     , numbers
     , old-locale
     , old-time
+    , optparse-applicative
     , parsec
     , pipes
     , pretty
@@ -233,12 +249,18 @@ executable haskell-fp-start-exe
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      GenericPretty
+      Chart
+    , Chart-diagrams
+    , GenericPretty
     , QuickCheck
     , aeson
     , base >=4.7 && <5
     , binary
+    , blaze-colonnade
+    , blaze-html
     , bytestring
+    , cassava
+    , colonnade
     , conduit
     , constraints
     , containers
@@ -252,9 +274,11 @@ executable haskell-fp-start-exe
     , ieee754
     , mtl
     , mwc-random
+    , network
     , numbers
     , old-locale
     , old-time
+    , optparse-applicative
     , parsec
     , pipes
     , pretty
@@ -284,12 +308,18 @@ test-suite haskell-fp-start-test
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      GenericPretty
+      Chart
+    , Chart-diagrams
+    , GenericPretty
     , QuickCheck
     , aeson
     , base >=4.7 && <5
     , binary
+    , blaze-colonnade
+    , blaze-html
     , bytestring
+    , cassava
+    , colonnade
     , conduit
     , constraints
     , containers
@@ -303,9 +333,11 @@ test-suite haskell-fp-start-test
     , ieee754
     , mtl
     , mwc-random
+    , network
     , numbers
     , old-locale
     , old-time
+    , optparse-applicative
     , parsec
     , pipes
     , pretty
