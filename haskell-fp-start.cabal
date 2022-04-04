@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 4ed7784bce3141e149db75411249f3d5314e2de5e64cddb854203ac4a2d68b52
+-- hash: 9dd768d6dea557a93dde5d43f4d25cc5315786dbb8705ceea39b83471289e16b
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -195,6 +195,7 @@ library
       Chart
     , Chart-diagrams
     , GenericPretty
+    , MissingH
     , QuickCheck
     , aeson
     , base >=4.7 && <5
@@ -252,6 +253,7 @@ executable haskell-fp-start-exe
       Chart
     , Chart-diagrams
     , GenericPretty
+    , MissingH
     , QuickCheck
     , aeson
     , base >=4.7 && <5
@@ -311,6 +313,7 @@ test-suite haskell-fp-start-test
       Chart
     , Chart-diagrams
     , GenericPretty
+    , MissingH
     , QuickCheck
     , aeson
     , base >=4.7 && <5

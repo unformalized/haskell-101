@@ -67,6 +67,7 @@ dependencies:
   - blaze-colonnade
   - Chart
   - Chart-diagrams
+  - MissingH
 
 library:
   source-dirs: src

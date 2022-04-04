@@ -180,6 +180,10 @@ extra-deps:
   - lifted-base-0.2.3.12@sha256:e94ad0692c9c5d85c373e508f23654f2da8ac8c3e475c2b65ffbc04fb165ad69,3369
   - monad-control-1.0.3.1@sha256:2d657279839e1a760c86a69f00f0c36473ef6972d413ec0f83a40249c70e098e,2365
   - blaze-colonnade-1.2.2.1@sha256:b27601f0366b006e86ee33297a722fe33c94ac058e61d4eace387d132e656a21,1394
+  - MissingH-1.4.3.0@sha256:32f9892ec98cd21df4f4d3ed8d95a3831ae74287ea0641d6f09b2dc6ef061d39,4859
+  - hslogger-1.3.1.0@sha256:e40119589bc3299fe3f1ae84c067b0b056f96338b37daa19e6151d6233f9a2e1,2899
+  - network-bsd-2.8.1.0@sha256:cd945ea08818281e4a8fa6f0a0640a1502aad3748546a3c197e071772452a9bd,3738
+  - regex-compat-0.95.2.1@sha256:32c5162c97e067fbd8dacd43a594d281245100823f206d69f3f7ba48c1dc2fe5,1756
 # Dependency packages to be pulled from upstream that are not in the resolver.
 # These entries can reference officially published versions as well as
 # forks / in-progress versions pinned to a git hash. For example:
