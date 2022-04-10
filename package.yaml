@@ -68,6 +68,7 @@ dependencies:
   - Chart
   - Chart-diagrams
   - MissingH
+  - timeit
 
 library:
   source-dirs: src

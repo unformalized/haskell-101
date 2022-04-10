@@ -1033,4 +1033,11 @@ packages:
       sha256: 1e30c2697841a2f4afd07a25c3f6d0298b8e0ef59646a50f00a9667e3227c1b5
   original:
     hackage: regex-compat-0.95.2.1@sha256:32c5162c97e067fbd8dacd43a594d281245100823f206d69f3f7ba48c1dc2fe5,1756
+- completed:
+    hackage: timeit-2.0@sha256:0757796734c8bcc8cad97bac90d6db60e40f148b5d62699baf12fb8ec8939b34,1197
+    pantry-tree:
+      size: 259
+      sha256: 048f9c6dd792ea20dc178f67581bdba042d689e5dda3129614937c9f3c971a85
+  original:
+    hackage: timeit-2.0@sha256:0757796734c8bcc8cad97bac90d6db60e40f148b5d62699baf12fb8ec8939b34,1197
 snapshots: []

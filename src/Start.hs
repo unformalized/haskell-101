@@ -1,6 +1,6 @@
 module Start where
 
-import HaskellInDepth.Chapter3.Start (start)
+import HaskellInDepth.Chapter4.ContainerMini.Bench (benchmark_test)
 
 someFunc :: IO ()
-someFunc = start
+someFunc = benchmark_test

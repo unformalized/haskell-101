@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 9dd768d6dea557a93dde5d43f4d25cc5315786dbb8705ceea39b83471289e16b
+-- hash: 6a3c8f1ff91d346096eeddd3bbea0cee6a6f06958e50a85aff09a1b8d582a3e2
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -87,6 +87,13 @@ library
       HaskellInDepth.Chapter3.QuoteData
       HaskellInDepth.Chapter3.Start
       HaskellInDepth.Chapter3.StatReport
+      HaskellInDepth.Chapter4.ContainerMini.Bench
+      HaskellInDepth.Chapter4.ContainerMini.Data.Deque
+      HaskellInDepth.Chapter4.ContainerMini.Data.Queue
+      HaskellInDepth.Chapter4.ContainerMini.Data.Stack
+      HaskellInDepth.Chapter4.ContainerMini.TestQueue
+      HaskellInDepth.Chapter4.ContainerMini.TestStack
+      HaskellInDepth.Chapter4.CustomPrelude
       Intermediate.CalcByStack
       Intermediate.Calculator
       Intermediate.CFG
@@ -236,6 +243,7 @@ library
     , text
     , text-show
     , time
+    , timeit
     , transformers >=0.4.1 && <0.6
     , transformers-base
     , vector
@@ -295,6 +303,7 @@ executable haskell-fp-start-exe
     , text
     , text-show
     , time
+    , timeit
     , transformers >=0.4.1 && <0.6
     , transformers-base
     , vector
@@ -355,6 +364,7 @@ test-suite haskell-fp-start-test
     , text
     , text-show
     , time
+    , timeit
     , transformers >=0.4.1 && <0.6
     , transformers-base
     , vector

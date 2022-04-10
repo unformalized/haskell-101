@@ -1,0 +1,1 @@
+module HaskellInDepth.Chapter4.ContainerMini.TestStack where
