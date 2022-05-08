@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 6a3c8f1ff91d346096eeddd3bbea0cee6a6f06958e50a85aff09a1b8d582a3e2
+-- hash: bef261a0c925e07cba6d0553f1f59981dc63bf8b0d6bb390d2ce219e4ffe62c7
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -34,6 +34,8 @@ library
       Advance.InjectiveTypeFamily
       Advance.KindPloy
       Advance.LazyEvaluation
+      Advance.Lense
+      Advance.LensStart
       Advance.MonomorphismRestriction
       Advance.MyShow
       Advance.Proxy
@@ -94,6 +96,8 @@ library
       HaskellInDepth.Chapter4.ContainerMini.TestQueue
       HaskellInDepth.Chapter4.ContainerMini.TestStack
       HaskellInDepth.Chapter4.CustomPrelude
+      HaskellInDepth.Chapter5.MonadMaybe
+      HaskellInDepth.Chapter5.ReaderMonad
       Intermediate.CalcByStack
       Intermediate.Calculator
       Intermediate.CFG
