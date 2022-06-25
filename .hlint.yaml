@@ -1,2 +1,4 @@
 
 - ignore: {name: Use camelCase}
+- ignore: {name: Use first}
+- ignore: {name: Use second}

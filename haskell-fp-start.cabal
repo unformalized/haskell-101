@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: bef261a0c925e07cba6d0553f1f59981dc63bf8b0d6bb390d2ce219e4ffe62c7
+-- hash: a6f9a744c2b93b447d2dc2134d1888ca7baabbd11399a5acb75be03408881fc6
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -62,6 +62,7 @@ library
       Base.Functions
       Base.LibFuns
       Base.Typeclass
+      CatTalks.ProbabilityMonad
       Content
       Generic.DataJSONOperator
       Generic.DataPrettyPrint
