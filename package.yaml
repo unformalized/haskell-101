@@ -69,6 +69,7 @@ dependencies:
   - Chart-diagrams
   - MissingH
   - timeit
+  - array
 
 library:
   source-dirs: src

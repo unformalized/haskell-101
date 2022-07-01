@@ -1,0 +1,3 @@
+-- |
+
+module String.ByteString where

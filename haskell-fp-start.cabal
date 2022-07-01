@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a6f9a744c2b93b447d2dc2134d1888ca7baabbd11399a5acb75be03408881fc6
+-- hash: a200027450b2709da8047d8d9981acbbd6de3f928cea3adbd43cbfa6cfd8f14f
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -64,6 +64,8 @@ library
       Base.Typeclass
       CatTalks.ProbabilityMonad
       Content
+      Data.BaseInt
+      Data.NormalData
       Generic.DataJSONOperator
       Generic.DataPrettyPrint
       Generic.DataSequelize
@@ -131,6 +133,8 @@ library
       Intermediate.SystemTime
       Intermediate.UnsafeIO
       Intermediate.Writer
+      Network.OperatorServer
+      Network.SimpleSocket
       Primary.Caeser
       Primary.Catalan
       Primary.DataType
@@ -190,6 +194,7 @@ library
       RealWorld.Test.Prettify
       RealWorld.Test.QCBasic
       Start
+      String.ByteString
       SYB.MoandTrans
       SYB.Reflection
       SYB.Size
@@ -210,6 +215,7 @@ library
     , MissingH
     , QuickCheck
     , aeson
+    , array
     , base >=4.7 && <5
     , binary
     , blaze-colonnade
@@ -269,6 +275,7 @@ executable haskell-fp-start-exe
     , MissingH
     , QuickCheck
     , aeson
+    , array
     , base >=4.7 && <5
     , binary
     , blaze-colonnade
@@ -330,6 +337,7 @@ test-suite haskell-fp-start-test
     , MissingH
     , QuickCheck
     , aeson
+    , array
     , base >=4.7 && <5
     , binary
     , blaze-colonnade
