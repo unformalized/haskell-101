@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a200027450b2709da8047d8d9981acbbd6de3f928cea3adbd43cbfa6cfd8f14f
+-- hash: f04db636495f437afee424e4c06ab729a886197f53abf4a1b7de0e26f4d36c20
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -65,6 +65,7 @@ library
       CatTalks.ProbabilityMonad
       Content
       Data.BaseInt
+      Data.BaseVector
       Data.NormalData
       Generic.DataJSONOperator
       Generic.DataPrettyPrint
@@ -193,6 +194,9 @@ library
       RealWorld.SearchSystem.SimpleFind
       RealWorld.Test.Prettify
       RealWorld.Test.QCBasic
+      RecursionScheme.Start1
+      RecursionScheme.Start2
+      RecursionScheme.Start3
       Start
       String.ByteString
       SYB.MoandTrans
@@ -204,6 +208,7 @@ library
       SYB.TypeableAndDataClass
       Test.BinaryTest
       Test.Vector
+      Torrent.Bencode
   other-modules:
       Paths_haskell_fp_start
   hs-source-dirs:
