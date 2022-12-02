@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: f04db636495f437afee424e4c06ab729a886197f53abf4a1b7de0e26f4d36c20
+-- hash: 6586f793b03d564a81d71bbb809821a0452ba7eb3c03e62682b1a41f4dbe78aa
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -197,6 +197,7 @@ library
       RecursionScheme.Start1
       RecursionScheme.Start2
       RecursionScheme.Start3
+      RecursionScheme.Start4
       Start
       String.ByteString
       SYB.MoandTrans

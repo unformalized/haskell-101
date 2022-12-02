@@ -1,4 +1,7 @@
+{-# LANGUAGE AllowAmbiguousTypes #-}
 {-# LANGUAGE DeriveFunctor #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE InstanceSigs #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- |
@@ -6,15 +9,17 @@ module RecursionScheme.Start2
   ( ExprF (..),
     Term (..),
     Algebra,
-    Coalgebra,
+    CoAlgebra,
     cata,
     ana,
     bottomUp,
     topDown,
+    printLit,
   )
 where
 
 import Control.Arrow ((<<<), (>>>))
+import Data.String (IsString (fromString))
 import RecursionScheme.Start1 (Lit (..))
 import Text.PrettyPrint (Doc)
 import qualified Text.PrettyPrint as P
@@ -29,11 +34,23 @@ data ExprF a
   | LiteralF {intVal :: Lit}
   deriving (Show, Eq, Functor)
 
+instance IsString (ExprF a) where
+  fromString :: String -> ExprF a
+  fromString = IdentF
+
+instance IsString (Term ExprF) where
+  fromString :: String -> Term ExprF
+  fromString = In . IdentF
+
+instance Eq (Term ExprF) where
+  (==) :: Term ExprF -> Term ExprF -> Bool
+  (==) (In e1) (In e2) = e1 == e2
+
 newtype Term f = In {out :: f (Term f)}
 
 type Algebra f a = f a -> a
 
-type Coalgebra f a = a -> f a
+type CoAlgebra f a = a -> f a
 
 ten, add, call :: Term ExprF
 ten = In (LiteralF {intVal = IntLit 10})
@@ -46,7 +63,7 @@ mystery fn = out >>> fmap (mystery fn) >>> fn
 cata :: Functor f => Algebra f a -> Term f -> a
 cata fn = out >>> fmap (cata fn) >>> fn
 
-ana :: Functor f => Coalgebra f a -> a -> Term f
+ana :: Functor f => CoAlgebra f a -> a -> Term f
 ana f = In <<< fmap (ana f) <<< f
 
 countNodes :: Algebra ExprF Int
