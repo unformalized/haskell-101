@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 6586f793b03d564a81d71bbb809821a0452ba7eb3c03e62682b1a41f4dbe78aa
+-- hash: d41983e5fd10c887b567686c4d49043f6bd8e0b0d46e9c54f167d45db7877883
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -100,8 +100,11 @@ library
       HaskellInDepth.Chapter4.ContainerMini.TestQueue
       HaskellInDepth.Chapter4.ContainerMini.TestStack
       HaskellInDepth.Chapter4.CustomPrelude
+      HaskellInDepth.Chapter5.FileCounter
+      HaskellInDepth.Chapter5.IORef
       HaskellInDepth.Chapter5.MonadMaybe
       HaskellInDepth.Chapter5.ReaderMonad
+      HaskellInDepth.Chapter5.STMonadTest
       Intermediate.CalcByStack
       Intermediate.Calculator
       Intermediate.CFG
@@ -235,6 +238,7 @@ library
     , deepseq
     , derive
     , directory
+    , extra
     , filepath
     , fmt
     , ghc-prim
@@ -295,6 +299,7 @@ executable haskell-fp-start-exe
     , deepseq
     , derive
     , directory
+    , extra
     , filepath
     , fmt
     , ghc-prim
@@ -357,6 +362,7 @@ test-suite haskell-fp-start-test
     , deepseq
     , derive
     , directory
+    , extra
     , filepath
     , fmt
     , ghc-prim

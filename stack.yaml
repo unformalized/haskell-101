@@ -185,6 +185,7 @@ extra-deps:
   - network-bsd-2.8.1.0@sha256:cd945ea08818281e4a8fa6f0a0640a1502aad3748546a3c197e071772452a9bd,3738
   - regex-compat-0.95.2.1@sha256:32c5162c97e067fbd8dacd43a594d281245100823f206d69f3f7ba48c1dc2fe5,1756
   - timeit-2.0@sha256:0757796734c8bcc8cad97bac90d6db60e40f148b5d62699baf12fb8ec8939b34,1197
+  - extra-1.7.11@sha256:601d0663235a91edef3585b7c76baf899b308ef667c1d1be3004f600a80d3c85,2661
 # Dependency packages to be pulled from upstream that are not in the resolver.
 # These entries can reference officially published versions as well as
 # forks / in-progress versions pinned to a git hash. For example:

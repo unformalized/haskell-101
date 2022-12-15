@@ -1040,4 +1040,11 @@ packages:
       sha256: 048f9c6dd792ea20dc178f67581bdba042d689e5dda3129614937c9f3c971a85
   original:
     hackage: timeit-2.0@sha256:0757796734c8bcc8cad97bac90d6db60e40f148b5d62699baf12fb8ec8939b34,1197
+- completed:
+    hackage: extra-1.7.11@sha256:601d0663235a91edef3585b7c76baf899b308ef667c1d1be3004f600a80d3c85,2661
+    pantry-tree:
+      size: 1896
+      sha256: 26ac772e0ed2777056f00a4dd022bdf4a505f66423730556d7ce1459a50e9bd7
+  original:
+    hackage: extra-1.7.11@sha256:601d0663235a91edef3585b7c76baf899b308ef667c1d1be3004f600a80d3c85,2661
 snapshots: []

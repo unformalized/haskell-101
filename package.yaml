@@ -70,6 +70,7 @@ dependencies:
   - MissingH
   - timeit
   - array
+  - extra
 
 library:
   source-dirs: src
