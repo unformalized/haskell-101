@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: d41983e5fd10c887b567686c4d49043f6bd8e0b0d46e9c54f167d45db7877883
+-- hash: e064d48a496ff59bc3bb03e6615955a4e80e60844490d55d63ee10fe28477ee3
 
 name:           haskell-fp-start
 version:        0.1.0.0
@@ -105,6 +105,8 @@ library
       HaskellInDepth.Chapter5.MonadMaybe
       HaskellInDepth.Chapter5.ReaderMonad
       HaskellInDepth.Chapter5.STMonadTest
+      HaskellInDepth.Chapter6.EvalRPN
+      HaskellInDepth.Chapter6.EvalRPNTrans
       Intermediate.CalcByStack
       Intermediate.Calculator
       Intermediate.CFG
