@@ -71,6 +71,7 @@ dependencies:
   - timeit
   - array
   - extra
+  - unix-compat
 
 library:
   source-dirs: src
